@@ -3,6 +3,6 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
 
-    margin: 1rem;
+    margin: 1rem 1rem 0;
 
 `
