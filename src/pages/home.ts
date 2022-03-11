@@ -25,8 +25,60 @@ padding: 1rem;
 
             background: var(--black-lowOpacity);
         }
+    
+    }
 
-}
+    .main {
+        .tasks-list {
+
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            
+            h1 {
+                font-size: 2.2rem;
+                text-align: left;
+            }
+
+            .task {
+
+               
+                margin-top: 1.5rem;
+
+                padding: 1.5rem;
+                color: var(--white);
+                background: var(--blue-200);
+
+                border-radius: 0.5rem;
+
+                span {
+                    display: flex;
+                    justify-content: space-between;
+
+                    font-weight: 900;
+                    line-height: 2rem;
+                }
+
+                .button-status {
+                    background: var(--white);
+                    color: var(--black);
+                    font-weight: 700;
+
+                    margin-top: 1.5rem;
+                    padding: 0.5rem;
+                    width: 35%;
+                    border-radius: 0.25rem;
+
+                    display: flex;
+                    justify-content: space-between;
+
+
+                }
+
+
+
+            }
+        }
+    }
 
 
 `

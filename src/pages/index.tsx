@@ -1,53 +1,61 @@
 import { Container } from "./home";
 
 import searchImg from '../../public/images/search.svg';
+import { useState } from "react";
 
 
 export default function Home() {
+
+  const [status, setStatus] = useState("concluded");
+
+
+
   return (
     <Container>
 
       <section className="search">
-        
-          <input type="text" placeholder="Procurar tarefas" />
-        
+
+        <input type="text" placeholder="Procurar tarefas" />
+
       </section>
 
-      <section className="tasks-list">
+      <section className="main">
         <h1>
           Tarefas
         </h1>
 
-        <div className="task">
-          
-          <span>
-            Nome:
-            <img src="/images/etc.svg" alt="Etc" />
-          </span>
+        <div className="tasks-list">
+          <div className="task">
 
-          <p>Descrição da tarefa</p>
+            <span>
+              Nome:
+              <img src="/images/etc.svg" alt="Etc" />
+            </span>
 
-          <div>
-            <img src="/images/checked.svg" alt="Concluído" />
-            Concluído
+            <p>Descrição da tarefa</p>
+
+            <div className="button-status">
+              <img src="/images/checked.svg" alt="Concluído" />
+              Concluído
+            </div>
+
           </div>
 
-        </div>
+          <div className="task">
 
-        <div className="task">
+            <span>
+              Nome:
+              <img src="/images/etc.svg" alt="Etc" />
+            </span>
 
-          <span>
-            Nome:
-            <img src="/images/etc.svg" alt="Etc" />
-          </span>
+            <p>Descrição da tarefa</p>
 
-          <p>Descrição da tarefa</p>
+            <div className="button-status">
+              <img src="/images/checked.svg" alt="Concluído" />
+              Concluído
+            </div>
 
-          <div>
-            <img src="/images/checked.svg" alt="Concluído" />
-            Concluído
           </div>
-
         </div>
       </section>
     </Container>
