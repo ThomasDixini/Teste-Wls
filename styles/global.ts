@@ -8,9 +8,12 @@ export const GlobalStyle = createGlobalStyle`
 :root {
     --white: #FFFFFF;
     --black: #000000;
+    --black-lowOpacity: rgba(0, 0, 0, 0.1);
 
     --blue-200: #0047FF;
     --blue-500: #0039CC;
+
+    
 
 }
 
