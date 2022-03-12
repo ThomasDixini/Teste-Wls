@@ -98,8 +98,14 @@ padding: 1rem;
         justify-content: space-between;
         align-items: center;
 
+        transition: filter 0.2s;
+
         img {
             margin-right: 1rem;
+        }
+
+        &:hover {
+            filter: brightness(0.8);
         }
         
         
