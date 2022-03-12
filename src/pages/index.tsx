@@ -1,20 +1,29 @@
 import { Container } from "./home";
 
-import searchImg from '../../public/images/search.svg';
-import { useState } from "react";
 import Head from "next/head";
+
+import { useState } from "react";
+import Modal from 'react-modal';
 
 
 export default function Home() {
 
   const [status, setStatus] = useState("concluded");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  function handleOpenMenu() {
+    setModalIsOpen(true);
+  }
+
+  function handleCloseMenu() {
+    setModalIsOpen(false);
+  }
 
 
   return (
     <>
       <Head>
-          <title>Tarefas</title>
+        <title>Tarefas</title>
       </Head>
 
       <Container>
@@ -65,11 +74,43 @@ export default function Home() {
           </div>
         </section>
 
-        <button type="button">
+        <button type="button" onClick={handleOpenMenu}>
           <img src="/images/add.svg" alt="Icone de Soma" />
           <p> Nova Tarefa </p>
         </button>
       </Container>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseMenu}
+
+        overlayClassName="react-modal-overlay"
+        className="react-modal-content"
+      >
+        <h1>
+          Criar Tarefa
+        </h1>
+
+        <form method="post">
+    
+          <input type="text" placeholder="Nome" />
+          <textarea rows={4} placeholder="Descrição Grande" />
+
+          <div className="buttons">
+            <button type="button" onClick={handleCloseMenu}>
+              Cancelar
+            </button>
+
+            <button type="submit">
+              Salvar
+            </button>
+          </div>
+        </form>
+
+
+
+
+      </Modal>
     </>
   )
 }
