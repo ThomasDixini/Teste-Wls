@@ -64,6 +64,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <button type="button">
+          <img src="/images/add.svg" alt="Icone de Soma" />
+          <p> Nova Tarefa </p>
+        </button>
       </Container>
     </>
   )

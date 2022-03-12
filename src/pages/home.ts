@@ -80,5 +80,30 @@ padding: 1rem;
         }
     }
 
+    button {
+        padding: 0 2rem;
+        height: 4rem;
+        
+        border-radius: 0.5rem;
+        border: none;
+
+        background: var(--blue-200);
+        color: var(--white);
+
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            margin-right: 1rem;
+        }
+        
+        
+    }
+
 
 `
