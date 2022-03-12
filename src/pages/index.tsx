@@ -2,6 +2,7 @@ import { Container } from "./home";
 
 import searchImg from '../../public/images/search.svg';
 import { useState } from "react";
+import Head from "next/head";
 
 
 export default function Home() {
@@ -11,53 +12,59 @@ export default function Home() {
 
 
   return (
-    <Container>
+    <>
+      <Head>
+          <title>Tarefas</title>
+      </Head>
 
-      <section className="search">
+      <Container>
 
-        <input type="text" placeholder="Procurar tarefas" />
+        <section className="search">
 
-      </section>
+          <input type="text" placeholder="Procurar tarefas" />
 
-      <section className="main">
-        <h1>
-          Tarefas
-        </h1>
+        </section>
 
-        <div className="tasks-list">
-          <div className="task">
+        <section className="main">
+          <h1>
+            Tarefas
+          </h1>
 
-            <span>
-              Nome:
-              <img src="/images/etc.svg" alt="Etc" />
-            </span>
+          <div className="tasks-list">
+            <div className="task">
 
-            <p>Descrição da tarefa</p>
+              <span>
+                Nome:
+                <img src="/images/etc.svg" alt="Etc" />
+              </span>
 
-            <div className="button-status">
-              <img src="/images/checked.svg" alt="Concluído" />
-              Concluído
+              <p>Descrição da tarefa</p>
+
+              <div className="button-status">
+                <img src="/images/checked.svg" alt="Concluído" />
+                Concluído
+              </div>
+
             </div>
 
-          </div>
+            <div className="task">
 
-          <div className="task">
+              <span>
+                Nome:
+                <img src="/images/etc.svg" alt="Etc" />
+              </span>
 
-            <span>
-              Nome:
-              <img src="/images/etc.svg" alt="Etc" />
-            </span>
+              <p>Descrição da tarefa</p>
 
-            <p>Descrição da tarefa</p>
+              <div className="button-status">
+                <img src="/images/checked.svg" alt="Concluído" />
+                Concluído
+              </div>
 
-            <div className="button-status">
-              <img src="/images/checked.svg" alt="Concluído" />
-              Concluído
             </div>
-
           </div>
-        </div>
-      </section>
-    </Container>
+        </section>
+      </Container>
+    </>
   )
 }
