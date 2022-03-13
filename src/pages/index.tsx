@@ -4,6 +4,7 @@ import Head from "next/head";
 
 import { useState } from "react";
 import Modal from 'react-modal';
+import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
 
 
 export default function Home() {
@@ -80,37 +81,9 @@ export default function Home() {
         </button>
       </Container>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseMenu}
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseMenu}/>
 
-        overlayClassName="react-modal-overlay"
-        className="react-modal-content"
-      >
-        <h1>
-          Criar Tarefa
-        </h1>
-
-        <form method="post">
-    
-          <input type="text" placeholder="Nome" />
-          <textarea rows={4} placeholder="Descrição Grande" />
-
-          <div className="buttons">
-            <button type="button" onClick={handleCloseMenu}>
-              Cancelar
-            </button>
-
-            <button type="submit">
-              Salvar
-            </button>
-          </div>
-        </form>
-
-
-
-
-      </Modal>
+      
     </>
   )
 }
