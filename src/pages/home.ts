@@ -149,15 +149,6 @@ margin: 0 auto;
 
     }
 
-    @media(max-width: 400px){
-        .main {
-            button {
-                position: absolute;
-                bottom: 1rem;
-                right: 1rem;
-            }
-        }
-    }
 }
 
 
