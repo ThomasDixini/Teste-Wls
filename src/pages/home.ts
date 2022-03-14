@@ -7,6 +7,7 @@ max-width: 375px;
 width: 100%;
     
 padding: 1rem;
+margin: 0 auto;
 
     .search {
 
@@ -29,10 +30,14 @@ padding: 1rem;
     }
 
     .main {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
         .tasks-list {
 
-            display: grid;
-            grid-template-rows: repeat(2, 1fr);
+            width: 100%;
             
             h1 {
                 font-size: 2.2rem;
@@ -73,43 +78,64 @@ padding: 1rem;
 
 
                 }
+            }
+        }
+
+        button {
+
+            padding: 0 2rem;
+            height: 4rem;
+            margin-left: auto;
+            margin-top: 2rem;
+            
+            border-radius: 0.5rem;
+            border: none;
+
+            background: var(--blue-200);
+            color: var(--white);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            transition: filter 0.2s;
+
+            img {
+                margin-right: 1rem;
+            }
+
+            &:hover {
+                filter: brightness(0.8);
+            }          
+        }
+    }
+
+    
 
 
+& {
+    @media(min-width: 1200px){
+        max-width: 600px;
+        width: 100%;
+        
+    }
 
+    @media(min-width: 600px){
+        max-width: 500px;
+        width: 80%;
+
+    }
+
+    @media(max-width: 400px){
+        .main {
+            button {
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
             }
         }
     }
-
-    button {
-        padding: 0 2rem;
-        height: 4rem;
-        
-        border-radius: 0.5rem;
-        border: none;
-
-        background: var(--blue-200);
-        color: var(--white);
-
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        transition: filter 0.2s;
-
-        img {
-            margin-right: 1rem;
-        }
-
-        &:hover {
-            filter: brightness(0.8);
-        }
-        
-        
-    }
+}
 
 
 `

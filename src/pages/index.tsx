@@ -73,17 +73,17 @@ export default function Home() {
 
             </div>
           </div>
+
+          <button type="button" onClick={handleOpenMenu}>
+            <img src="/images/add.svg" alt="Icone de Soma" />
+            <p> Nova Tarefa </p>
+          </button>
         </section>
 
-        <button type="button" onClick={handleOpenMenu}>
-          <img src="/images/add.svg" alt="Icone de Soma" />
-          <p> Nova Tarefa </p>
-        </button>
+        
       </Container>
 
       <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseMenu}/>
-
-      
     </>
   )
 }
