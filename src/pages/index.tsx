@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Modal from 'react-modal';
 import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
+import { AsideMenu } from "../components/AsideMenu/AsideMenu";
 
 
 export default function Home() {
@@ -83,6 +84,7 @@ export default function Home() {
         
       </Container>
 
+      <AsideMenu />
       <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseMenu}/>
     </>
   )
