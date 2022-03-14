@@ -87,7 +87,10 @@ button {
         border: none;
         border: 1px solid rgba(0,0,0, 0.3);
 
-        padding: 0.5rem
+        padding: 0.5rem;
+        overflow-y: hidden;
+
+        resize: none;
     }
 
     input {
