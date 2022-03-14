@@ -8,16 +8,17 @@ import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
 import { AsideMenu } from "../components/AsideMenu/AsideMenu";
 
 
-export default function Home() {
+export default function Home(props) {
 
   const [status, setStatus] = useState("concluded");
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function handleOpenMenu() {
+
+  function handleOpenModal() {
     setModalIsOpen(true);
   }
 
-  function handleCloseMenu() {
+  function handleCloseModal() {
     setModalIsOpen(false);
   }
 
@@ -28,7 +29,7 @@ export default function Home() {
         <title>Tarefas</title>
       </Head>
 
-      <Container>
+      <Container isActive={props.isOpen}>
 
         <section className="search">
 
@@ -75,7 +76,7 @@ export default function Home() {
             </div>
           </div>
 
-          <button type="button" onClick={handleOpenMenu}>
+          <button type="button" onClick={handleOpenModal}>
             <img src="/images/add.svg" alt="Icone de Soma" />
             <p> Nova Tarefa </p>
           </button>
@@ -84,8 +85,8 @@ export default function Home() {
         
       </Container>
 
-      <AsideMenu />
-      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseMenu}/>
+      <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu}/>
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}/>
     </>
   )
 }

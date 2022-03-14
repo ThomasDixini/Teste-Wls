@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { Container } from "./styles";
 
+interface HeaderProps {
+    openMenu: () => void;
+}
 
-export function Header() {
+export function Header({ openMenu }: HeaderProps) {
 
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    console.log(menuOpen);
-
-    function handleOpenMenu() {
-        setMenuOpen(true);
-    }
+    
 
 
     return(
-        <Container onClick={handleOpenMenu}>
+        <Container onClick={openMenu}>
             <img src="/images/menu.svg" alt="Botão do menu"  />
         </Container>
     );

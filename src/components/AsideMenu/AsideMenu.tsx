@@ -1,9 +1,10 @@
 import { Container } from "./styles";
 
 
-export function AsideMenu() {
+export function AsideMenu(props) {
+
     return(
-        <Container>
+        <Container isActive={props.isOpen}>
             <nav>
                 <div>
                     <img src="/images/user.svg" alt="Usuário" />
@@ -13,7 +14,7 @@ export function AsideMenu() {
                     </div>
                 </div>
                 <hr />
-                <a className="active">
+                <a className="active" onClick={props.closeMenu}>
                     <img src="/images/list.svg" alt="Logo de Tarefas" />
                     <p> Tarefas </p>
                 </a>

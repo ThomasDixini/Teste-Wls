@@ -1,13 +1,36 @@
 import styled from 'styled-components';
 
+interface HomeProps {
+    isActive: boolean;
+}
 
-export const Container = styled.main`
+
+export const Container = styled.main<HomeProps>`
 
 max-width: 375px;
 width: 100%;
     
 padding: 1rem;
 margin: 0 auto;
+
+    
+
+    &::after {
+        
+        content: "";
+
+        display: ${props => props.isActive ? "block" : "none"};
+
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+
+    }
 
     .search {
 

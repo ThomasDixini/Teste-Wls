@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
+interface AsideMenuProps {
+    isActive: boolean;
+}
 
-
-export const Container = styled.aside`
+export const Container = styled.aside<AsideMenuProps>`
 
     max-width: 15rem;
     width: 100%;
     padding: 2rem;
-    
+
+    visibility: ${ props => props.isActive ? 'visible' : 'hidden'};
     
     position: fixed;
     bottom: 0;
@@ -60,6 +63,10 @@ export const Container = styled.aside`
         }
 
     }
+
+@media(min-width: 600px){
+    visibility: visible;
+}
 
 
 `
