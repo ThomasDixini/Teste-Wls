@@ -1,11 +1,14 @@
-import { Container } from "./home";
 
 import Head from "next/head";
-
+import { GetServerSideProps } from "next";
 import { useState } from "react";
-import Modal from 'react-modal';
+
 import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
 import { AsideMenu } from "../components/AsideMenu/AsideMenu";
+
+import { Container } from "./home";
+
+import { api } from "../services/api";
 
 
 export default function Home(props) {
@@ -22,6 +25,7 @@ export default function Home(props) {
     setModalIsOpen(false);
   }
 
+  console.log(props.tasks)
 
   return (
     <>
@@ -43,37 +47,28 @@ export default function Home(props) {
           </h1>
 
           <div className="tasks-list">
-            <div className="task">
+            {
+              props.tasks.map(task => {
+                return (
+                  <div className="task" key={task.guid}>
 
-              <span>
-                Nome:
-                <img src="/images/etc.svg" alt="Etc" />
-              </span>
+                    <span>
+                      {task.title}
+                      <img src="/images/etc.svg" alt="Etc" />
+                    </span>
 
-              <p>Descrição da tarefa</p>
+                    <p>{task.description}</p>
 
-              <div className="button-status">
-                <img src="/images/checked.svg" alt="Concluído" />
-                Concluído
-              </div>
+                    <div className="button-status">
+                      <img src="/images/checked.svg" alt="Concluído" />
+                      {task.situation}
+                    </div>
 
-            </div>
+                  </div>
+                );
+              })
+            }
 
-            <div className="task">
-
-              <span>
-                Nome:
-                <img src="/images/etc.svg" alt="Etc" />
-              </span>
-
-              <p>Descrição da tarefa</p>
-
-              <div className="button-status">
-                <img src="/images/checked.svg" alt="Concluído" />
-                Concluído
-              </div>
-
-            </div>
           </div>
 
           <button type="button" onClick={handleOpenModal}>
@@ -82,11 +77,24 @@ export default function Home(props) {
           </button>
         </section>
 
-        
+
       </Container>
 
-      <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu}/>
-      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}/>
+      <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu} />
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+  const tasks = await api.get(``).then(response => response.data)
+
+  return {
+    props: {
+      tasks,
+    }
+  }
+
+
 }
