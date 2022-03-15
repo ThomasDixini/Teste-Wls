@@ -4,6 +4,8 @@ import { GlobalStyle } from '../../styles/global';
 import { Header } from '../components/Header/Header';
 
 import { useState } from 'react';
+import { TasksProvider } from '../hooks/useTasks';
+
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -19,12 +21,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
 
   return (
-    <>
+    <TasksProvider>
       <Header openMenu={handleOpenMenu}/>
 
       <Component {...pageProps} isOpen={menuOpen} closeMenu={handleCloseMenu}/>
       <GlobalStyle />
-    </>
+    </TasksProvider>
   );
 }
 
