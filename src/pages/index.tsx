@@ -1,7 +1,7 @@
 
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
 import { AsideMenu } from "../components/AsideMenu/AsideMenu";
@@ -11,9 +11,11 @@ import { Container } from "./home";
 import { api } from "../services/api";
 
 
+
+
 export default function Home(props) {
 
-  const [status, setStatus] = useState("concluded");
+  const [status, setStatus] = useState("inprogress");
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
@@ -25,7 +27,7 @@ export default function Home(props) {
     setModalIsOpen(false);
   }
 
-  console.log(props.tasks)
+  
 
   return (
     <>
@@ -81,7 +83,7 @@ export default function Home(props) {
       </Container>
 
       <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu} />
-      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal} />
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}/>
     </>
   )
 }
