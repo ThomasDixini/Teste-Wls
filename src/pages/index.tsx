@@ -9,6 +9,8 @@ import { AsideMenu } from "../components/AsideMenu/AsideMenu";
 import { Container } from "./home";
 
 import { api } from "../services/api";
+import { useTasks } from "../hooks/useTasks";
+
 
 
 
@@ -27,6 +29,9 @@ export default function Home(props) {
     setModalIsOpen(false);
   }
 
+  
+
+  
   
 
   return (
@@ -52,9 +57,9 @@ export default function Home(props) {
             {
               props.tasks.map(task => {
                 return (
-                  <div className="task" key={task.guid}>
+                  <div className="task" key={task.guid} >
 
-                    <span>
+                    <span >
                       {task.title}
                       <img src="/images/etc.svg" alt="Etc" />
                     </span>
@@ -88,15 +93,16 @@ export default function Home(props) {
   )
 }
 
+
 export const getServerSideProps: GetServerSideProps = async () => {
 
-  const tasks = await api.get(``).then(response => response.data)
+  const tasks = await api.get(`/`).then(response => response.data)
+  
 
   return {
     props: {
       tasks,
     }
   }
-
-
 }
+
