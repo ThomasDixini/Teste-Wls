@@ -19,9 +19,9 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
     const [description, setDescription] = useState("");
     const [type, setType] = useState("inprogress");
     
-    console.log(type)
+    
 
-    const { createTask } = useTasks();
+    const { createTask, updatetask } = useTasks();
 
 
 
@@ -70,7 +70,7 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
                 <Status className="status" isVisible={isEditing}>
                     <Button 
                     type="button"
-                    onClick={() => setType('inprogress')}
+                    onClick={() => {setType('inprogress'); updatetask(type)}}
                     isActive={type === 'inprogress'}
                     >
                         Em progresso
@@ -78,7 +78,7 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
 
                     <Button 
                     type="button"
-                    onClick={() => setType('concluded')}
+                    onClick={() => {setType('concluded'); updatetask(type)}}
                     isActive={type === 'concluded'}
                     >
                         Concluído
