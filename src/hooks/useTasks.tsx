@@ -21,6 +21,7 @@ interface TasksProviderProps {
 interface TaskContextData {
     
     createTask: (task: TaskInput) => void;
+    updatetask: (status: String) => void;
 }
 
 export const TasksContext = createContext<TaskContextData>({} as TaskContextData);
@@ -38,8 +39,15 @@ export function TasksProvider({ children }: TasksProviderProps) {
 
     }
 
+    async function updatetask(status: String) {
+
+        await api.patch(`/`, {
+            situation: status,
+        })
+    }
+
     return(
-        <TasksContext.Provider value={{createTask}}>
+        <TasksContext.Provider value={{createTask, updatetask}}>
             {children}
         </TasksContext.Provider>
     );
