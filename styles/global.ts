@@ -98,6 +98,35 @@ button {
         margin: 2rem 0;
     }
 
+    .status {
+
+        background-color: rgba(0, 0, 0, 0.1);
+
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        margin-top: 1rem;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        
+        
+        button {
+
+            padding: 0 0.5rem;
+            height: 2rem;
+
+            border: none;
+            border-radius: 0.5rem;
+
+            
+            font-weight: 600;
+
+        }
+
+    }
+
     .buttons {
 
         display: flex;
