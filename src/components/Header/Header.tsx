@@ -7,9 +7,6 @@ interface HeaderProps {
 
 export function Header({ openMenu }: HeaderProps) {
 
-    
-
-
     return(
         <Container onClick={openMenu}>
             <img src="/images/menu.svg" alt="Botão do menu"  />

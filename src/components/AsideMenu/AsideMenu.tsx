@@ -1,5 +1,5 @@
+import  Link  from 'next/link'
 import { Container } from "./styles";
-
 
 export function AsideMenu(props) {
 
@@ -14,15 +14,19 @@ export function AsideMenu(props) {
                     </div>
                 </div>
                 <hr />
-                <a className="active" onClick={props.closeMenu}>
-                    <img src="/images/list.svg" alt="Logo de Tarefas" />
-                    <p> Tarefas </p>
-                </a>
+                <Link href="/">
+                    <a className="active" onClick={props.closeMenu}>
+                        <img src="/images/list.svg" alt="Logo de Tarefas" />
+                        <p> Tarefas </p>
+                    </a>
+                </Link>
 
-                <a>
-                    <img src="/images/information.svg" alt="Logo de informação" />
-                    <p> Sobre </p>
-                </a>
+                <Link href="/aboutus">
+                    <a>
+                        <img src="/images/information.svg" alt="Logo de informação" />
+                        <p> Sobre </p>
+                    </a>
+                </Link>
             </nav>
         </Container>
     );
