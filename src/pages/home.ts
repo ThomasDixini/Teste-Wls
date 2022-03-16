@@ -21,7 +21,7 @@ margin: 0 auto;
 
         display: ${props => props.isActive ? "block" : "none"};
 
-        position: absolute;
+        position: fixed;
         bottom: 0;
         top: 0;
         left: 0;
@@ -84,6 +84,16 @@ margin: 0 auto;
 
                     font-weight: 900;
                     line-height: 2rem;
+
+                    img {
+                        transition: filter 0.2s;
+
+                        &:hover {
+                            cursor: pointer;
+                            filter: brightness(0.8);    
+                        }
+                    }
+                    
                 }
 
                 .button-status {

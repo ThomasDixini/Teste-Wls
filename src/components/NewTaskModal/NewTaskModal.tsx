@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import Modal from 'react-modal'
 import { useTasks } from '../../hooks/useTasks';
 import { api } from '../../services/api';
-import { Button } from './styles';
+import { Button, Status } from './styles';
 
 
 interface NewTaskModalProps {
@@ -67,7 +67,7 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
                 onChange={e => setDescription(e.target.value)}
                 />
 
-                <div className="status">
+                <Status className="status" isVisible={isEditing}>
                     <Button 
                     type="button"
                     onClick={() => setType('inprogress')}
@@ -83,10 +83,10 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
                     >
                         Concluído
                     </Button>
-                </div>
+                </Status>
 
                 <div className="buttons">
-                    <button type="button" onClick={  onRequestClose }>
+                    <button type="button" onClick={ () => { onRequestClose();  toCreate()} }>
                         Cancelar
                     </button>
 

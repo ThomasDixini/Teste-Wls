@@ -19,6 +19,7 @@ export default function Home(props) {
 
   const [status, setStatus] = useState("inprogress");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
 
   function handleOpenModal() {
@@ -27,6 +28,10 @@ export default function Home(props) {
 
   function handleCloseModal() {
     setModalIsOpen(false);
+  }
+
+  function handleChangeModalToCreate() {
+    setIsEditing(false);
   }
 
   
@@ -61,7 +66,7 @@ export default function Home(props) {
 
                     <span >
                       {task.title}
-                      <img src="/images/etc.svg" alt="Etc" />
+                      <img src="/images/etc.svg" alt="Etc" onClick={() => { handleOpenModal(); setIsEditing(true)}}/>
                     </span>
 
                     <p>{task.description}</p>
@@ -88,7 +93,7 @@ export default function Home(props) {
       </Container>
 
       <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu} />
-      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}/>
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal} isEditing={isEditing} toCreate={() => handleChangeModalToCreate()}/>
     </>
   )
 }

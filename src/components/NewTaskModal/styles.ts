@@ -5,6 +5,18 @@ interface ButtonProps {
     isActive: boolean;
 }
 
+interface StatusProps {
+    isVisible: boolean;
+}
+
+
+export const Status = styled.div<StatusProps>`
+
+    display: ${props => props.isVisible ? "visible" : "none !important"};
+
+`
+
+
 export const Button = styled.button<ButtonProps>`
 
 
