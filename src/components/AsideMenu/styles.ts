@@ -64,7 +64,7 @@ export const Container = styled.aside<AsideMenuProps>`
 
     }
 
-@media(min-width: 600px){
+@media(min-width: 1100px){
     visibility: visible;
 }
 
