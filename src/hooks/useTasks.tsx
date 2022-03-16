@@ -29,6 +29,8 @@ export const TasksContext = createContext<TaskContextData>({} as TaskContextData
 export function TasksProvider({ children }: TasksProviderProps) {
 
     
+        const response = api.get("").then(response => response.data)
+    
 
     async function createTask(taskInput: TaskInput) {
 
@@ -41,9 +43,12 @@ export function TasksProvider({ children }: TasksProviderProps) {
 
     async function updatetask(status: String) {
 
-        await api.patch(`/`, {
+        await api.put(`/`, {
+            response,
             situation: status,
         })
+
+        
     }
 
     return(
