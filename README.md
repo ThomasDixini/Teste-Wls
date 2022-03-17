@@ -25,6 +25,8 @@ Depois disso, o projeto ja estará rodando no seu navegador.
 
 ## Desafios/Problemas
 
+
+
     Um dos maiores desafios que tive nesse projeto foi aplicar a responsividade, e fazer diferentes telas para cada tipo de dispositivo. Não ficou 100% perfeito, mas acho
 que deu para pelo menos visualizar em Desktop e Mobile.
     Outro desafio que também tive, foi ao tentar aplicar a tecnologia redux. Tentei implementa-lo na aplicação, mas é uma tecnologia que eu não compreendo ainda muito bem,
@@ -37,10 +39,10 @@ consegui solucionar, pesquisei videos, documentações, etc ... e não consegui 
 
 ## Layouts
 
-<img src="/images/desktop-tela.png" width="1000"/>
-<img src="/images/desktop-tela-2.png" width="1000"/>
+<img src="./public/images/desktop-tela.png" width="1000"/>
+<img src="./public/images/desktop-tela-2.png" width="1000"/>
 
-<img src="/images/mobile-tela-1.png" width="1000"/>
-<img src="/images/mobile-tela-2.png" width="1000"/>
+<img src="./public/images/mobile-tela-1.png" width="1000"/>
+<img src="./public/images/mobile-tela-2.png" width="1000"/>
 
 
