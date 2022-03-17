@@ -42,7 +42,7 @@ consegui solucionar, pesquisei videos, documentações, etc ... e não consegui 
 <img src="./public/images/desktop-tela.png" width="1000"/>
 <img src="./public/images/desktop-tela-2.png" width="1000"/>
 
-<img src="./public/images/mobile-tela-1.png" width="1000"/>
-<img src="./public/images/mobile-tela-2.png" width="1000"/>
+<img src="./public/images/mobile-tela-1.png" width="400"/>
+<img src="./public/images/mobile-tela-2.png" width="400"/>
 
 
