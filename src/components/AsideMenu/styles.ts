@@ -10,7 +10,7 @@ export const Container = styled.aside<AsideMenuProps>`
     width: 100%;
     padding: 2rem;
 
-    visibility: ${ props => props.isActive ? 'visible' : 'hidden'};
+    visibility: ${ props => props.isActive ? 'visible' : 'hidden'};              /* O menu só mostrará se isActive for true */ 
     
     position: fixed;
     bottom: 0;
@@ -64,7 +64,7 @@ export const Container = styled.aside<AsideMenuProps>`
 
     }
 
-@media(min-width: 1100px){
+@media(min-width: 1100px){              /* Se a tela for maior que 1099px o menu ficará fixo na tela */
     visibility: visible;
 }
 

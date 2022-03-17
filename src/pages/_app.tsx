@@ -1,31 +1,30 @@
 import { AppProps } from 'next/app';
+import { useState } from 'react';
+
+import { TasksProvider } from '../hooks/useTasks';
 
 import { GlobalStyle } from '../../styles/global';
 import { Header } from '../components/Header/Header';
 
-import { useState } from 'react';
-import { TasksProvider } from '../hooks/useTasks';
-
-
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);      // Estado que diz se o Menu do lado está aberto
 
 
-    function handleOpenMenu() {
+    function handleOpenMenu() {             // Seta o estado para Aberto
         setMenuOpen(true);
     }
 
-    function handleCloseMenu() {
+    function handleCloseMenu() {            // Seta o estado para fechado
       setMenuOpen(false);
     }
 
   return (
-    <TasksProvider>
+    <TasksProvider>                         { /* Provider que compartilha o meu hook useTasks() com toda a aplicação */}
       <Header openMenu={handleOpenMenu}/>
 
       <Component {...pageProps} isOpen={menuOpen} closeMenu={handleCloseMenu}/>
-      <GlobalStyle />
+      <GlobalStyle /> {/* Estilos Globais da aplicação */}
     </TasksProvider>
   );
 }

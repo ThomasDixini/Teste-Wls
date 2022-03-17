@@ -1,66 +1,60 @@
 
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import { NewTaskModal } from "../components/NewTaskModal/NewTaskModal";
 import { AsideMenu } from "../components/AsideMenu/AsideMenu";
 
-import { Container } from "./home";
-
 import { api } from "../services/api";
-import { useTasks } from "../hooks/useTasks";
+
+import { Container, Content, Search } from "./home";
 
 
 
+export default function Home(props) {             // Página principal da aplicação
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);  // Estado que diz se o modal está aberto
+  const [isEditing, setIsEditing] = useState(false);    // Estado que diz se o modal é de criação ou de edição
 
 
-export default function Home(props) {
-
-  const [status, setStatus] = useState("inprogress");
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-
-
-  function handleOpenModal() {
+  function handleOpenModal() {    // Abre o modal
     setModalIsOpen(true);
   }
 
-  function handleCloseModal() {
+  function handleCloseModal() {   // Fecha o modal
     setModalIsOpen(false);
   }
 
-  function handleChangeModalToCreate() {
+  function handleChangeModalToCreate() {    // Retorna o estado para false, fazendo assim o modal voltar a ser de criação
     setIsEditing(false);
   }
 
-  
-
-  
-  
 
   return (
     <>
       <Head>
-        <title>Tarefas</title>
+        <title>Tarefas</title>      {/* Coloca o título da página dinamicamente */}
       </Head>
 
       <Container isActive={props.isOpen}>
 
-        <section className="search">
+        {/* Barra de pesquisa */}
 
+        <Search>      
           <input type="text" placeholder="Procurar tarefas" />
+        </Search>
 
-        </section>
+        {/* Conteúdo main (Onde fica as tarefas) */}
 
-        <section className="main">
+        <Content>
           <h1>
             Tarefas
           </h1>
 
           <div className="tasks-list">
             {
-              props.tasks.map(task => {
+              props.tasks.map(task => {           {/* Para cada item no meu array de tasks, me retorna um Html com as propriedades corretas*/}
                 return (
                   <div className="task" key={task.guid} >
 
@@ -80,20 +74,20 @@ export default function Home(props) {
                 );
               })
             }
-
           </div>
 
-          <button type="button" onClick={handleOpenModal}>
+          {/* Botão de adicionar nova tarefa */}
+
+          <button type="button" onClick={handleOpenModal}>  {/* Quando clicado abre o modal */}
             <img src="/images/add.svg" alt="Icone de Soma" />
             <p> Nova Tarefa </p>
           </button>
-        </section>
-
+        </Content>
 
       </Container>
 
-      <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu} />
-      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal} isEditing={isEditing} toCreate={() => handleChangeModalToCreate()}/>
+      <AsideMenu isOpen={props.isOpen} closeMenu={props.closeMenu} />     {/* Componente que contém o menu ao lado da aplicação */}
+      <NewTaskModal isOpen={modalIsOpen} onRequestClose={handleCloseModal} isEditing={isEditing} toCreate={() => handleChangeModalToCreate()}/> {/* Modal da aplicação */}
     </>
   )
 }
@@ -101,10 +95,9 @@ export default function Home(props) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
 
-  const tasks = await api.get(`/`).then(response => response.data)
+  const tasks = await api.get(`/`).then(response => response.data)  // Buscando as tarefas com consumo de API (SSR)
   
-
-  return {
+  return {      // Retorna as tasks como props, que assim poderemos usa-las na página
     props: {
       tasks,
     }

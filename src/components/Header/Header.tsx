@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { Container } from "./styles";
-
-interface HeaderProps {
+interface HeaderProps {             // Tipagens
     openMenu: () => void;
 }
 
 export function Header({ openMenu }: HeaderProps) {
 
     return(
-        <Container onClick={openMenu}>
-            <img src="/images/menu.svg" alt="Botão do menu"  />
+        <Container onClick={openMenu}>                          {/* Quando clicar no ícone abre o Menu */}
+            <img src="/images/menu.svg" alt="Botão do menu"  />         
         </Container>
     );
 }

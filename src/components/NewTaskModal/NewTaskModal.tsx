@@ -1,9 +1,9 @@
 import { useState, FormEvent } from 'react';
-import Modal from 'react-modal'
-import { useTasks } from '../../hooks/useTasks';
-import { api } from '../../services/api';
-import { Button, Status } from './styles';
+import Modal from 'react-modal';
 
+import { useTasks } from '../../hooks/useTasks';
+
+import { Button, Status } from './styles';
 
 interface NewTaskModalProps {
     isOpen: boolean,
@@ -15,17 +15,15 @@ interface NewTaskModalProps {
 
 export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: NewTaskModalProps) {
 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [type, setType] = useState("inprogress");
+    const [title, setTitle] = useState("");                 // Pega o título da tarefa
+    const [description, setDescription] = useState("");     // pega a descrição da tarefa
+    const [type, setType] = useState("inprogress");         // Pega o status da tarefa
     
-    
 
-    const { createTask, updatetask } = useTasks();
-
+    const { createTask, updatetask } = useTasks();          // Chamando as duas funções que existe no hook
 
 
-    async function handleCreateNewTask(event: FormEvent) {
+    async function handleCreateNewTask(event: FormEvent) {  // Cria uma nova tarefa
         event.preventDefault();
 
         await createTask({
@@ -47,27 +45,27 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
         >
             
                 <h1>
-                    { isEditing ? "Editar tarefa" : "Criar Tarefa"}
+                    { isEditing ? "Editar tarefa" : "Criar Tarefa"}         {/* isEditing define se o modal é de criação ou de edição */}
                 </h1>
             
 
             <form onSubmit={handleCreateNewTask}>
 
-                <input 
+                <input                // Input do título
                 type="text" 
                 placeholder="Nome"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 />
 
-                <textarea 
+                <textarea            // Input da descrição
                 rows={4} 
                 placeholder="Descrição Grande" 
                 value={description}
                 onChange={e => setDescription(e.target.value)}
                 />
 
-                <Status className="status" isVisible={isEditing}>
+                <Status className="status" isVisible={isEditing}>           {/* Botões aonde fica os status: Em progresse e Concluído */}
                     <Button 
                     type="button"
                     onClick={() => {setType('inprogress'); updatetask(type)}}
@@ -85,7 +83,7 @@ export function NewTaskModal({ isOpen, onRequestClose, isEditing, toCreate}: New
                     </Button>
                 </Status>
 
-                <div className="buttons">
+                <div className="buttons">                               {/* Botões que saí ou salva os dados do modal */}
                     <button type="button" onClick={ () => { onRequestClose();  toCreate()} }>
                         Cancelar
                     </button>

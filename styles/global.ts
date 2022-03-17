@@ -54,7 +54,7 @@ button {
 }
 
 
-.react-modal-overlay {
+.react-modal-overlay {                      /* Overlay do Modal */
     position: fixed;
     top: 0;
     bottom: 0;
@@ -69,7 +69,7 @@ button {
     backdrop-filter: blur(2px);
 }
 
-.react-modal-content {
+.react-modal-content {          /* Conteúdo do Modal */
     max-width: 315px;
     width: 100%;
     padding: 2rem;
